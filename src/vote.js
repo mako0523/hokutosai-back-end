@@ -18,11 +18,12 @@ connection.connect((err) => {
   console.log("success");
 });
 
+const port = 3000;
+
 app.get("/", (req, res) => {
-  connection.query("SELECT * FROM users", (error, results) => {
-    console.log(results);
-    res.render("hello.ejs");
-  });
+  res.send("Hello World!\n");
 });
 
-app.listen(3000);
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
