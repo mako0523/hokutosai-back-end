@@ -21,14 +21,23 @@ connection.connect((error) => {
   console.log("success");
 });
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.send("Hokutofes vote api.");
 });
 
-app.get("/vote", (req, res) => {
+app.get("/api/vote", (req, res) => {
   connection.query("SELECT * FROM stall", (error, results) => {
     res.send(results);
   });
+});
+
+app.put("/api/vote/:name", (req, res) => {
+  connection.query(
+    `UPDATE stall SET count = count + 1 WHERE name = '${req.params.name}';`,
+    (error, results) => {
+      res.send(results);
+    }
+  );
 });
 
 const port = process.env.PORT || 3000;
