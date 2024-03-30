@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "daemon-start": "npx forever start src/vote.js",
+    "daemon-restart": "npx forever restart src/vote.js",
+    "daemon-stop": "npx forever stop src/vote.js",
+    "daemon-list": "npx forever list"
   },
   "keywords": [],
   "author": "",
