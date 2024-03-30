@@ -1,29 +1,35 @@
+"use strict";
+
 const express = require("express");
 const mysql = require("mysql");
 
 const app = express();
 
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "hokutofes_user",
-  password: "ZUq8UDoMp6",
   database: "hokutofes_vote",
+  host: "localhost",
+  password: "ZUq8UDoMp6",
+  user: "hokutofes_user",
 });
 
-connection.connect((err) => {
-  if (err) {
-    console.log("error connecting: " + err.stack);
+connection.connect((error) => {
+  if (error) {
+    console.log("error connecting: " + error.stack);
     return;
   }
+
   console.log("success");
 });
 
-const port = 3000;
-
 app.get("/", (req, res) => {
-  res.send("Hello World!\n");
+  res.send("Hokutofes vote api.");
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.get("/vote", (req, res) => {
+  connection.query("SELECT * FROM stall", (error, results) => {
+    res.send(results);
+  });
 });
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening on port ${port}...`));
