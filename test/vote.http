@@ -1,0 +1,13 @@
+GET https://hokutofes.com/api
+
+###
+
+GET https://hokutofes.com/api/vote
+
+###
+
+PUT https://hokutofes.com/api/vote/aiueo
+
+###
+
+PUT https://hokutofes.com/api/vote/hoge
