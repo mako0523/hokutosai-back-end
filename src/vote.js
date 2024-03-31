@@ -32,11 +32,33 @@ app.get("/api/vote", (req, res) => {
 });
 
 app.put("/api/vote/:name", (req, res) => {
+  const ip = req.ip;
+
   connection.query(
-    `UPDATE stall SET count = count + 1 WHERE name = '${req.params.name}';`,
+    `
+    UPDATE
+        stall
+    SET
+        count = count + 1
+    WHERE
+        name = '${req.params.name}'
+        AND NOT EXISTS (
+            SELECT
+                1
+            FROM
+                ip
+            WHERE
+                ip.ip = '${ip}'
+        );
+   `,
     (error, results) => {
       res.send(results);
     }
+  );
+
+  connection.query(
+    `INSERT INTO ip (ip) VALUES ('${ip}');`,
+    (error, results) => {}
   );
 });
 
