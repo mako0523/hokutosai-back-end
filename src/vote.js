@@ -4,6 +4,16 @@ const express = require("express");
 const mysql = require("mysql");
 
 const app = express();
+const cors = require('cors');
+
+const corsOptions = {
+  origin: "http://127.0.0.1:3000",
+  methods: ["GET", "POST", "PUT"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 const connection = mysql.createConnection({
   database: "hokutofes_vote",
