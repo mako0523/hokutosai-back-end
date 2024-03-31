@@ -56,10 +56,11 @@ app.put("/api/vote/:name", (req, res) => {
     }
   );
 
-  connection.query(
-    `INSERT INTO ip (ip) VALUES ('${ip}');`,
-    (error, results) => {}
-  );
+  // TODO: IPアドレスを元に投票回数を制限する処理を実装
+  // connection.query(
+  //   `INSERT INTO ip (ip) VALUES ('${ip}');`,
+  //   (error, results) => {}
+  // );
 });
 
 const port = process.env.PORT || 3000;
