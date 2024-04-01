@@ -4,6 +4,7 @@ const express = require("express");
 const requestIp = require("request-ip");
 const cors = require("cors");
 const mysql = require("mysql");
+require("dotenv").config();
 
 const app = express();
 
@@ -17,10 +18,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const connection = mysql.createConnection({
-  database: "hokutofes_vote",
-  host: "localhost",
-  password: "ZUq8UDoMp6",
-  user: "hokutofes_user",
+  database: process.env.MYSQL_CONNECTION_DATABASE,
+  host: process.env.MYSQL_CONNECTION_HOST,
+  password: process.env.MYSQL_CONNECTION_PASSWORD,
+  user: process.env.MYSQL_CONNECTION_USER,
 });
 
 connection.connect((error) => {
