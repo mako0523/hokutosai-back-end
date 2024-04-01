@@ -1,10 +1,11 @@
 "use strict";
 
 const express = require("express");
+const requestIp = require("request-ip");
+const cors = require("cors");
 const mysql = require("mysql");
 
 const app = express();
-const cors = require('cors');
 
 const corsOptions = {
   origin: "http://127.0.0.1:3000",
@@ -42,7 +43,7 @@ app.get("/api/vote", (req, res) => {
 });
 
 app.put("/api/vote/:name", (req, res) => {
-  const ip = req.ip;
+  const ip = requestIp.getClientIp(req);
 
   connection.query(
     `
@@ -66,11 +67,10 @@ app.put("/api/vote/:name", (req, res) => {
     }
   );
 
-  // TODO: IPアドレスを元に投票回数を制限する処理を実装
-  // connection.query(
-  //   `INSERT INTO ip (ip) VALUES ('${ip}');`,
-  //   (error, results) => {}
-  // );
+  connection.query(
+    `INSERT INTO ip (ip) VALUES ('${ip}');`,
+    (error, results) => {}
+  );
 });
 
 const port = process.env.PORT || 3000;
