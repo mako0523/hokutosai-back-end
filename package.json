@@ -8,8 +8,8 @@
     "daemon-restart": "npx forever restart src/vote.js",
     "daemon-stop": "npx forever stop src/vote.js",
     "daemon-list": "npx forever list",
-    "vote-show": "watch -cn 1 'curl https://hokutofes.com/api/vote | jq -C'",
-    "vote-export": "curl https://hokutofes.com/api/vote | jq > dist/vote.json"
+    "vote-show": "curl -s https://hokutofes.com/api/vote | jq -C | less -R",
+    "vote-export": "./scripts/vote-export.sh"
   },
   "keywords": [],
   "author": "",
