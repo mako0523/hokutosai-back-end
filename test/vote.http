@@ -6,8 +6,8 @@ GET https://hokutofes.com/api/vote
 
 ###
 
-PUT https://hokutofes.com/api/vote/aiueo
+PUT https://hokutofes.com/api/vote/stall-01
 
 ###
 
-PUT https://hokutofes.com/api/vote/hoge
+PUT https://hokutofes.com/api/vote/stall-13
