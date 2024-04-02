@@ -1,9 +1,11 @@
 #!/bin/bash
 
-OUTPUT_DIR=dist
+source "./.env"
 
-if [ ! -d ${OUTPUT_DIR} ]; then
-    mkdir ${OUTPUT_DIR}
+echo "${OUTPUT_DIR}"
+
+if [ ! -d "${OUTPUT_DIR}" ]; then
+    mkdir "${OUTPUT_DIR}"
 fi
 
-curl https://hokutofes.com/api/vote | jq >${OUTPUT_DIR}/vote.json
+curl "https://hokutofes.com/api/vote" | jq >"${OUTPUT_DIR}/vote.json"
