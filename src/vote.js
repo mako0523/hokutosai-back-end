@@ -6,6 +6,23 @@ const cors = require("cors");
 const mysql = require("mysql");
 require("dotenv").config();
 
+const isUndefined = (arg) => {
+  if (typeof arg === "undefined") {
+    return true;
+  }
+  return false;
+};
+
+const isEnvironmentVariableUndefined =
+  isUndefined(process.env.MYSQL_CONNECTION_DATABASE) |
+  isUndefined(process.env.MYSQL_CONNECTION_HOST) |
+  isUndefined(process.env.MYSQL_CONNECTION_PASSWORD) |
+  isUndefined(process.env.MYSQL_CONNECTION_USER);
+
+if (isEnvironmentVariableUndefined) {
+  throw new ReferenceError("Environment variable is not defined");
+}
+
 const app = express();
 
 const corsOptions = {
