@@ -2,15 +2,15 @@
 
 source "./.env"
 
-deploy() {
+uplode_file() {
     deploy_target_dir="ftp://${XSERVER_HOST_NAME}/hokutofes.com/script/${2}"
     curl -T "${1}" -u "${XSERVER_USER}:${XSERVER_PASSWORD}" --ftp-create-dirs "${deploy_target_dir}"
 }
 
-deploy "./.env"
-deploy "./package.json"
-deploy "./package-lock.json"
-deploy "./src/vote.js" "src/"
+uplode_file "./.env"
+uplode_file "./package.json"
+uplode_file "./package-lock.json"
+uplode_file "./src/vote.js" "src/"
 
 execute_command_in_server() {
     expect -c "
