@@ -9,7 +9,8 @@
     "daemon-stop": "npx forever stop src/vote.js",
     "daemon-list": "npx forever list",
     "vote-show": "curl -s https://hokutofes.com/api/vote | jq -C | less -R",
-    "vote-export": "./scripts/vote-export.sh"
+    "vote-export": "./scripts/vote-export.sh",
+    "deploy": "./scripts/deploy.sh"
   },
   "keywords": [],
   "author": "",
