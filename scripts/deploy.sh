@@ -3,8 +3,8 @@
 source "./.env"
 
 uplode_file() {
-    deploy_target_dir="ftp://${XSERVER_HOST_NAME}/hokutofes.com/script/${2}"
-    curl -T "${1}" -u "${XSERVER_USER}:${XSERVER_PASSWORD}" --ftp-create-dirs "${deploy_target_dir}"
+    uplode_target_dir="ftp://${XSERVER_HOST_NAME}/hokutofes.com/script/${2}"
+    curl -T "${1}" -u "${XSERVER_USER}:${XSERVER_PASSWORD}" --ftp-create-dirs "${uplode_target_dir}"
 }
 
 uplode_file "./.env"
@@ -23,7 +23,7 @@ execute_command_in_server() {
 
 start_server="
     cd ~/hokutofes.com/script || exit
-    npm ci
+    npm ci --omit=dev
     npm run daemon-stop
     npm run daemon-start
 "
