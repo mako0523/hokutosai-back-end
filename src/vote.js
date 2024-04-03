@@ -17,7 +17,8 @@ const isEnvironmentVariableUndefined =
   isUndefined(process.env.MYSQL_CONNECTION_DATABASE) |
   isUndefined(process.env.MYSQL_CONNECTION_HOST) |
   isUndefined(process.env.MYSQL_CONNECTION_PASSWORD) |
-  isUndefined(process.env.MYSQL_CONNECTION_USER);
+  isUndefined(process.env.MYSQL_CONNECTION_USER) |
+  isUndefined(process.env.PORT);
 
 if (isEnvironmentVariableUndefined) {
   throw new ReferenceError("Environment variable is not defined");
@@ -91,5 +92,4 @@ app.put("/api/vote/:name", (req, res) => {
   );
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+app.listen(process.env.PORT);
