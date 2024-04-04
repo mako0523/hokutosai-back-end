@@ -10,11 +10,11 @@ export:
 	@./scripts/export.sh
 
 deploy:
-	./scripts/deploy.sh
+	@./scripts/deploy.sh
 
 .PHONY: show
 show:
-	@curl -s https://hokutofes.com/api/vote | jq -C | less -R
+	@./scripts/show.sh
 
 .PHONY: clean
 clean:
