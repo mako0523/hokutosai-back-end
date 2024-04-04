@@ -7,10 +7,7 @@
     "daemon-start": "npx forever start src/vote.js",
     "daemon-restart": "npx forever restart src/vote.js",
     "daemon-stop": "npx forever stop src/vote.js",
-    "daemon-list": "npx forever list",
-    "vote-show": "curl -s https://hokutofes.com/api/vote | jq -C | less -R",
-    "vote-export": "./scripts/vote-export.sh",
-    "deploy": "./scripts/deploy.sh"
+    "daemon-list": "npx forever list"
   },
   "keywords": [],
   "author": "",
