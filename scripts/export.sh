@@ -4,5 +4,5 @@ source "./.env"
 
 mkdir -p "${OUTPUT_DIR}"
 
-curl -u "${BASIC_AUTHENTICATION_USER}:${BASIC_AUTHENTICATION_PASSWORD}" "https://hokutofes.com/api/vote" |
+curl --show-error --silent -u "${BASIC_AUTHENTICATION_USER}:${BASIC_AUTHENTICATION_PASSWORD}" "https://hokutofes.com/api/vote" |
     jq >"${OUTPUT_DIR}/vote.json"
