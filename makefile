@@ -3,19 +3,19 @@ RM = rm -rf
 all: node_modules export deploy
 
 node_modules: package.json package-lock.json
-	npm ci
+	@npm ci
 
 .PHONY: export
 export:
-	./scripts/export.sh
+	@./scripts/export.sh
 
 deploy:
 	./scripts/deploy.sh
 
 .PHONY: show
 show:
-	curl -s https://hokutofes.com/api/vote | jq -C | less -R
+	@curl -s https://hokutofes.com/api/vote | jq -C | less -R
 
 .PHONY: clean
 clean:
-	$(RM) node_modules dist
+	@$(RM) node_modules dist
