@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "daemon-start": "npx forever start src/vote.js",
+    "daemon-start": "npx forever start --minUptime 1000 --spinSleepTime 1000 src/vote.js",
     "daemon-restart": "npx forever restart src/vote.js",
     "daemon-stop": "npx forever stop src/vote.js",
     "daemon-list": "npx forever list"
