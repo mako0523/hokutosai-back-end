@@ -65,3 +65,7 @@ start_server="
 "
 
 execute_command_in_server "${start_server}"
+
+mkdir -p "logs"
+touch "logs/deploy.log"
+date >"logs/deploy.log"

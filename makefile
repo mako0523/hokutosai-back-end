@@ -1,16 +1,16 @@
 RM = rm -rf
 
-all: node_modules export deploy
+all: node_modules logs/deploy.log export
 
 node_modules: package.json package-lock.json
 	@npm ci
 
+logs/deploy.log: .env package.json package-lock.json src/vote.js
+	@./scripts/deploy.sh
+
 .PHONY: export
 export:
 	@./scripts/export.sh
-
-deploy:
-	@./scripts/deploy.sh
 
 .PHONY: show
 show:
@@ -18,4 +18,4 @@ show:
 
 .PHONY: clean
 clean:
-	@$(RM) node_modules dist
+	@$(RM) node_modules logs dist
