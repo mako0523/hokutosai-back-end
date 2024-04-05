@@ -1,21 +1,28 @@
-RM = rm -rf
+SRCDIR := src
+SRCS := $(shell echo $(SRCDIR)/*.js)
+modules := node_modules
+OUTPUTDIR := dist
+LOGDIR := logs
+LOGS := $(LOGDIR)/deploy.log
+RM := rm -rf
 
-all: node_modules logs/deploy.log export
+.PHONY: all export show clean
 
-node_modules: package.json package-lock.json
+all: $(modules) $(LOGS) export
+
+$(modules): package.json package-lock.json
 	@npm ci
 
-logs/deploy.log: .env package.json package-lock.json src/vote.js
+$(LOGS): $(SRCS) $(modules) .env
 	@./scripts/deploy.sh
+	@mkdir -p $(LOGDIR)
+	@date >$@
 
-.PHONY: export
 export:
 	@./scripts/export.sh
 
-.PHONY: show
 show:
 	@./scripts/show.sh
 
-.PHONY: clean
 clean:
-	@$(RM) node_modules logs dist
+	@$(RM) $(modules) $(OUTPUTDIR) $(LOGDIR)
