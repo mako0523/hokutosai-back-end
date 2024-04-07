@@ -1,28 +1,33 @@
-SRCDIR := src
-SRCS := $(shell echo $(SRCDIR)/*.js)
-MODULES := node_modules
-OUTPUTDIR := dist
-LOGDIR := logs
-LOGS := $(LOGDIR)/deploy.log
+include .env
+
+SRCS := $(wildcard $(SRC_DIR)/*.js)
+PACKAGES := node_modules
+DEPENDENCY_PACKAGES := package.json package-lock.json
+DEPLOY_LOG := $(LOG_DIR)/deploy.log
 RM := rm -rf
 
-.PHONY: all export show clean
+.PHONY: all
+all: $(PACKAGES)
 
-all: $(MODULES) $(LOGS) export
-
-$(MODULES): package.json package-lock.json
+$(PACKAGES): $(DEPENDENCY_PACKAGES)
 	@npm ci
 
-$(LOGS): $(SRCS) $(MODULES) .env
-	@./scripts/deploy.sh; \
-	mkdir -p $(LOGDIR); \
-	date >$@
+.PHONY: deploy
+deploy: $(DEPLOY_LOG)
 
+$(DEPLOY_LOG): $(SRCS) $(DEPENDENCY_PACKAGES) .env
+	@./scripts/deploy.sh; \
+	mkdir -p $(LOG_DIR); \
+	date >$(DEPLOY_LOG)
+
+.PHONY: export
 export:
 	@./scripts/export.sh
 
+.PHONY: show
 show:
 	@./scripts/show.sh
 
+.PHONY: clean
 clean:
-	@$(RM) $(MODULES) $(OUTPUTDIR) $(LOGDIR)
+	@$(RM) $(OUTPUT_DIR) $(PACKAGES) $(LOG_DIR)
