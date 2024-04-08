@@ -1,9 +1,12 @@
 include .env
 
+SRC_DIR := src
 SRCS := $(wildcard $(SRC_DIR)/*.js)
 PACKAGES := node_modules
 DEPENDENCY_PACKAGES := package.json package-lock.json
+LOG_DIR := logs
 DEPLOY_LOG := $(LOG_DIR)/deploy.log
+DOWNLOAD_DIR := out
 RM := rm -rf
 
 .PHONY: all
@@ -22,7 +25,7 @@ $(DEPLOY_LOG): $(SRCS) $(DEPENDENCY_PACKAGES) .env
 
 .PHONY: export
 export:
-	@./scripts/export.sh
+	@./scripts/export.sh $(DOWNLOAD_DIR)
 
 .PHONY: show
 show:
@@ -30,4 +33,4 @@ show:
 
 .PHONY: clean
 clean:
-	@$(RM) $(OUTPUT_DIR) $(PACKAGES) $(LOG_DIR)
+	@$(RM) $(PACKAGES) $(LOG_DIR) $(DOWNLOAD_DIR)
