@@ -43,7 +43,9 @@ const connection = mysql.createConnection({
 });
 
 connection.connect((error) => {
-  throw error;
+  if (error) {
+    throw error;
+  }
 });
 
 app.get("/api", (req, res) => {
