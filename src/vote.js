@@ -28,7 +28,7 @@ const app = express();
 
 const corsOptions = {
   origin: "http://127.0.0.1:3000",
-  methods: ["GET", "POST", "PUT"],
+  methods: ["GET", "PUT"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 };
@@ -43,12 +43,7 @@ const connection = mysql.createConnection({
 });
 
 connection.connect((error) => {
-  if (error) {
-    console.log("error connecting: " + error.stack);
-    return;
-  }
-
-  console.log("success");
+  throw error;
 });
 
 app.get("/api", (req, res) => {
