@@ -50,7 +50,7 @@ execute_command_in_server() {
     fi
 
     expect -c "
-        spawn -noecho ssh xserver \"${1}\"
+        spawn -noecho ssh hokutofes \"${1}\"
         expect passphrase
         send ${XSERVER_PASSPHRASE}\n
         expect $
