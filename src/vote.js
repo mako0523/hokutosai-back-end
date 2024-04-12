@@ -83,10 +83,10 @@ app.put("/api/vote/:name", (req, res) => {
     }
   );
 
-  connection.query(
-    `INSERT INTO ip (ip) VALUES ('${ip}');`,
-    (error, results) => {}
-  );
+  // connection.query(
+  //   `INSERT INTO ip (ip) VALUES ('${ip}');`,
+  //   (error, results) => {}
+  // );
 });
 
 app.listen(process.env.PORT);
