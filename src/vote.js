@@ -6,6 +6,8 @@ const cors = require("cors");
 const mysql = require("mysql");
 require("dotenv").config();
 
+const voteNames = ["stall", "cosplay", "exhibition", "muscle", "voice"];
+
 const isUndefined = (arg) => {
   if (typeof arg === "undefined") {
     return true;
@@ -52,19 +54,22 @@ app.get("/api", (req, res) => {
   res.send("Hokutofes vote api.");
 });
 
-app.get("/api/vote", (req, res) => {
-  connection.query("SELECT * FROM stall", (error, results) => {
-    res.send(results);
+const fetch = (voteName) => {
+  app.get(`/api/vote/${voteName}`, (req, res) => {
+    connection.query(`SELECT * FROM ${voteName}`, (error, results) => {
+      res.send(results);
+    });
   });
-});
+};
 
-app.put("/api/vote/:name", (req, res) => {
-  const ip = requestIp.getClientIp(req);
+const post = (voteName) => {
+  app.put(`/api/vote/${voteName}/:name`, (req, res) => {
+    const ip = requestIp.getClientIp(req);
 
-  connection.query(
-    `
+    connection.query(
+      `
     UPDATE
-        stall
+        ${voteName}
     SET
         count = count + 1
     WHERE
@@ -78,15 +83,21 @@ app.put("/api/vote/:name", (req, res) => {
                 ip.ip = '${ip}'
         );
    `,
-    (error, results) => {
-      res.send(results);
-    }
-  );
+      (error, results) => {
+        res.send(results);
+      }
+    );
 
-  // connection.query(
-  //   `INSERT INTO ip (ip) VALUES ('${ip}');`,
-  //   (error, results) => {}
-  // );
-});
+    // connection.query(
+    //   `INSERT INTO ip (ip) VALUES ('${ip}');`,
+    //   (error, results) => {}
+    // );
+  });
+};
+
+for (const voteName of voteNames) {
+  fetch(voteName);
+  post(voteName);
+}
 
 app.listen(process.env.PORT);
