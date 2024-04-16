@@ -2,12 +2,12 @@ GET https://hokutofes.com/api
 
 ###
 
-GET https://hokutofes.com/api/vote
+GET https://hokutofes.com/api/vote/stall
 
 ###
 
-PUT https://hokutofes.com/api/vote/stall-01
+PUT https://hokutofes.com/api/vote/stall/stall-01
 
 ###
 
-PUT https://hokutofes.com/api/vote/stall-13
+PUT https://hokutofes.com/api/vote/cosplay/cosplay-01
