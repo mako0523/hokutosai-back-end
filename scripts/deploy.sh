@@ -15,18 +15,7 @@ END
     exit 1
 fi
 
-usage_uplode_file() {
-    cat >&2 <<END
-Usage: uplode_file <FILE> [DIRECTORY]
-END
-}
-
 uplode_file() {
-    if [ -z "${1}" ]; then
-        usage_uplode_file
-        return 1
-    fi
-
     local uplode_target_dir="ftp://${XSERVER_HOST_NAME}/hokutofes.com/script/${2}"
     curl --show-error --silent --ftp-create-dirs \
         -u "${XSERVER_USER}:${XSERVER_PASSWORD}" -T "${1}" "${uplode_target_dir}"
@@ -37,18 +26,7 @@ uplode_file "./package.json"
 uplode_file "./package-lock.json"
 uplode_file "./src/vote.js" "src/"
 
-usage_execute_command_in_server() {
-    cat >&2 <<END
-Usage: execute_command_in_server <command>
-END
-}
-
 execute_command_in_server() {
-    if [ -z "${1}" ]; then
-        usage_execute_command_in_server
-        return 1
-    fi
-
     expect -c "
         spawn -noecho ssh hokutofes \"${1}\"
         expect passphrase
