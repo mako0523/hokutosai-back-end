@@ -6,7 +6,14 @@ const cors = require("cors");
 const mysql = require("mysql");
 require("dotenv").config();
 
-const voteNames = ["stall", "cosplay", "exhibition", "muscle", "voice"];
+const voteNames = [
+  "stall",
+  "exhibition",
+  "voice",
+  "cosplay",
+  "muscle",
+  "karaoke",
+];
 
 const isUndefined = (arg) => {
   if (typeof arg === "undefined") {
