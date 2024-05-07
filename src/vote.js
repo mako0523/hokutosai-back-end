@@ -36,7 +36,7 @@ if (isEnvironmentVariableUndefined) {
 const app = express();
 
 const corsOptions = {
-  origin: "http://127.0.0.1:3000",
+  origin: ["http://127.0.0.1:3000", "https://hokutosai-manager.vercel.app"],
   methods: ["GET", "PUT"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
