@@ -16,7 +16,7 @@ END
 fi
 
 uplode_file() {
-    local uplode_target_dir="ftp://${XSERVER_HOST_NAME}/hokutofes.com/script/${2}"
+    local uplode_target_dir="ftp://${XSERVER_HOST_NAME}/hokutosai.net/script/${2}"
     curl --show-error --silent --ftp-create-dirs \
         -u "${XSERVER_USER}:${XSERVER_PASSWORD}" -T "${1}" "${uplode_target_dir}"
 }
@@ -36,7 +36,7 @@ execute_command_in_server() {
 }
 
 start_server="
-    cd ~/hokutofes.com/script || exit
+    cd ~/hokutosai.net/script || exit
     npm ci --omit=dev
     npm run --silent daemon-stop
     npm run --silent daemon-start
