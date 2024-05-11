@@ -27,6 +27,7 @@ const isEnvironmentVariableUndefined =
   isUndefined(process.env.MYSQL_CONNECTION_HOST) |
   isUndefined(process.env.MYSQL_CONNECTION_PASSWORD) |
   isUndefined(process.env.MYSQL_CONNECTION_USER) |
+  isUndefined(process.env.SCHOOL_IP) |
   isUndefined(process.env.PORT);
 
 if (isEnvironmentVariableUndefined) {
@@ -95,10 +96,14 @@ const post = (voteName) => {
       }
     );
 
-    // connection.query(
-    //   `INSERT INTO ip (ip) VALUES ('${ip}');`,
-    //   (error, results) => {}
-    // );
+    if (ip === process.env.SCHOOL_IP) {
+      return;
+    }
+
+    connection.query(
+      `INSERT INTO ip (ip) VALUES ('${ip}');`,
+      (error, results) => {}
+    );
   });
 };
 
