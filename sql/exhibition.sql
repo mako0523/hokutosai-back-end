@@ -9,11 +9,6 @@ VALUES
 INSERT INTO
     exhibition (name)
 VALUES
-    ("謎解き（２年生）");
-
-INSERT INTO
-    exhibition (name)
-VALUES
     ("謎解きすごろくゲーム（電子情報工学科２年生）");
 
 INSERT INTO
@@ -84,9 +79,7 @@ VALUES
 INSERT INTO
     exhibition (name)
 VALUES
-    (
-        "ロボコンに出場したロボット２台の展示、及び希望者へのロボット操縦体験（メカトロ技術研究部・メカテック部）"
-    );
+    ("ロボット展示・ロボット操縦体験（メカトロ技術研究部・メカテック部）");
 
 INSERT INTO
     exhibition (name)

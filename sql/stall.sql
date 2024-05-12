@@ -9,7 +9,7 @@ VALUES
 INSERT INTO
     stall (name)
 VALUES
-    ("ポテト＆唐揚げ（ラグビー同好会）");
+    ("ポテト（ラグビー同好会）");
 
 INSERT INTO
     stall (name)
@@ -64,7 +64,7 @@ VALUES
 INSERT INTO
     stall (name)
 VALUES
-    ("焼き鳥、フランクフルト（機関学同好会）");
+    ("フランクフルト（機関学同好会）");
 
 INSERT INTO
     stall (name)
