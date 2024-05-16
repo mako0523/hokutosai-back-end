@@ -11,12 +11,12 @@ INSERT INTO
 VALUES
     ("寺崎耀");
 
-INSERT INFO
+INSERT INTO
     muscle (name)
 VALUES
     ("小倉魁透");
 
-INSERT INFO
+INSERT INTO
     muscle (name)
 VALUES
     ("上月貴生");

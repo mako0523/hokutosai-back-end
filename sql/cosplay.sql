@@ -11,22 +11,22 @@ INSERT INTO
 VALUES
     ("ウッディィ");
 
-INSERT INFO
+INSERT INTO
     cosplay (name)
 VALUES
     ("人造人間17号");
 
-INSERT INFO
+INSERT INTO
     cosplay (name)
 VALUES
     ("k3の魔法使いたち");
 
-INSERT INFO
+INSERT INTO
     cosplay (name)
 VALUES
     ("ちーむ大正ろまん♡");
 
-INSERT INFO
+INSERT INTO
     cosplay (name)
 VALUES
     ("勝山勝二");
