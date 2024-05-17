@@ -96,14 +96,14 @@ const post = (voteName) => {
       }
     );
 
-    if (ip === process.env.SCHOOL_IP) {
-      return;
-    }
+    // if (ip === process.env.SCHOOL_IP) {
+    //   return;
+    // }
 
-    connection.query(
-      `INSERT INTO ip (ip) VALUES ('${ip}');`,
-      (error, results) => {}
-    );
+    // connection.query(
+    //   `INSERT INTO ip (ip) VALUES ('${ip}');`,
+    //   (error, results) => {}
+    // );
   });
 };
 
