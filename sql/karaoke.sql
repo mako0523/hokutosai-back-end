@@ -4,29 +4,34 @@ DELETE FROM
 INSERT INTO
     karaoke (name)
 VALUES
-    ("篠原颯太（商船学科４年）");
+    ("篠原颯太");
 
 INSERT INTO
     karaoke (name)
 VALUES
-    ("川口直輝（国際ビジネス学科４年） 渡邉嵐丸（商船学科４年）");
+    ("川口直輝・本田彩笑");
 
 INSERT INTO
     karaoke (name)
 VALUES
-    ("小林颯太（国際ビジネス学科３年）");
+    ("小林颯太");
 
 INSERT INTO
     karaoke (name)
 VALUES
-    ("小田嶋真寿（商船学科２年）");
+    ("小田嶋真寿");
 
 INSERT INTO
     karaoke (name)
 VALUES
-    ("小林莉音（国際ビジネス学科２年）");
+    ("小林莉音");
 
 INSERT INTO
     karaoke (name)
 VALUES
-    ("河野真央（国際ビジネス学科２年）");
+    ("河野真央");
+
+INSERT INTO
+    karaoke (name)
+VALUES
+    ("渡邉嵐丸・岩千尋");
