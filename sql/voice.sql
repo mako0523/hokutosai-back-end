@@ -9,7 +9,7 @@ VALUES
 INSERT INTO
     voice (name)
 VALUES
-    ("ぼたもち（吉田美優）");
+    ("ぼたもち（吉田心結）");
 
 INSERT INTO
     voice (name)
