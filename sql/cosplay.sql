@@ -14,7 +14,7 @@ VALUES
 INSERT INTO
     cosplay (name)
 VALUES
-    ("人造人間17号");
+    ("Neo17号");
 
 INSERT INTO
     cosplay (name)
