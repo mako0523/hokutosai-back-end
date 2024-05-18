@@ -1,7 +1,7 @@
 DELETE FROM
-    karaoke;
+    voice;
 
 INSERT INTO
-    karaoke (name)
+    voice (name)
 VALUES
     ("hoge");
