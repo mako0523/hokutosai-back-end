@@ -9,7 +9,7 @@ VALUES
 INSERT INTO
     voice (name)
 VALUES
-    ("ぼたもち（吉田心結）");
+    ("たなからぼたもち（吉田心結）");
 
 INSERT INTO
     voice (name)
@@ -34,4 +34,4 @@ VALUES
 INSERT INTO
     voice (name)
 VALUES
-    ("山村先生");
+    ("カレーがたべたい（山村先生）");
