@@ -24,7 +24,7 @@ VALUES
 INSERT INTO
     voice (name)
 VALUES
-    ("恥飛子（西野美悠）");
+    ("五十嵐綾瀬くん（西野美悠）");
 
 INSERT INTO
     voice (name)
