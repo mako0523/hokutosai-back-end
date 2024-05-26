@@ -95,15 +95,6 @@ const post = (voteName) => {
         res.send(results);
       }
     );
-
-    // if (ip === process.env.SCHOOL_IP) {
-    //   return;
-    // }
-
-    // connection.query(
-    //   `INSERT INTO ip (ip) VALUES ('${ip}');`,
-    //   (error, results) => {}
-    // );
   });
 };
 
