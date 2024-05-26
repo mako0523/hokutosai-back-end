@@ -82,11 +82,6 @@ const post = (voteName) => {
         count = count + 1
     WHERE
         name = '${req.params.name}'
-        AND NOT EXISTS (
-            SELECT
-                1
-            FROM
-                ip
         );
    `,
       (error, results) => {
