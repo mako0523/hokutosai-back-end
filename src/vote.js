@@ -87,8 +87,6 @@ const post = (voteName) => {
                 1
             FROM
                 ip
-            WHERE
-                ip.ip = '${ip}'
         );
    `,
       (error, results) => {
